@@ -1,10 +1,10 @@
-var g_game_area = document.querySelector( "#game_area" );
-var g_game = g_game_area.getContext( '2d' );
+let g_game_area = document.querySelector( "#game_area" );
+let g_game = g_game_area.getContext( '2d' );
 
-var g_actual_width = g_game_area.width;
-var g_actual_height = g_game_area.height;
-var g_virtual_width = 512;
-var g_virtual_height = 288;
+let g_actual_width = g_game_area.width;
+let g_actual_height = g_game_area.height;
+let g_virtual_width = 512;
+let g_virtual_height = 288;
 
 g_game.scale( g_actual_width / g_virtual_width, g_actual_height / g_virtual_height );
 g_game.imageSmoothingEnabled = false;
@@ -12,12 +12,13 @@ setInterval( render, 16.667 );
 
 
 let last_update = Date.now();
-const g_gravity = 35952;
+const g_gravity = 20;
+let keypressed = [];
 
 
 let backgrounds = new Backgrounds();
 let bird = new Bird();
-render();
+
 function render()
 {
     let now = Date.now();
@@ -32,6 +33,7 @@ function update( dt )
 {
     backgrounds.update( dt );
     bird.update( dt );
+    keypressed = [];
 }
 
 function draw()
@@ -40,4 +42,9 @@ function draw()
     backgrounds.draw();
     bird.draw();
 }
+
+document.addEventListener( 'keypress', function ( event )
+{
+    keypressed[ event.code ] = true;
+} );
 

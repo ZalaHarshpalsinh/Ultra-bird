@@ -15,7 +15,11 @@ class Bird
     update( dt )
     {
         this.dy = this.dy + ( dt * g_gravity );
-        this.y = this.y + ( dt * this.dy );
+        if ( keypressed[ 'Space' ] )
+        {
+            this.dy = -5;
+        }
+        this.y = this.y + this.dy;
     }
 
     draw()

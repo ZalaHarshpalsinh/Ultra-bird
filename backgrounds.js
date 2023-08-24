@@ -12,7 +12,7 @@ class Backgrounds
         this.ground_position = 0;
 
         this.mountains_scroll_speed = 30;
-        this.ground_scroll_speed = 60;
+        this.ground_scroll_speed = 100;
 
         this.mountains_looping_point = 413;
         this.ground_looping_point = g_virtual_width;
