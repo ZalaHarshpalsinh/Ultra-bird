@@ -10,6 +10,8 @@ g_game.scale( g_actual_width / g_virtual_width, g_actual_height / g_virtual_heig
 g_game.imageSmoothingEnabled = false;
 setInterval( render, 16.667 );
 
+let pause = false;
+
 
 let last_update = Date.now();
 const g_gravity = 20;
@@ -31,8 +33,15 @@ function render()
 
 function update( dt )
 {
-    backgrounds.update( dt );
-    bird.update( dt );
+    if ( keypressed[ 'Escape' ] )
+    {
+        pause = !pause;
+    }
+    if ( !pause )
+    {
+        backgrounds.update( dt );
+        bird.update( dt );
+    }
     keypressed = [];
 }
 
@@ -43,8 +52,9 @@ function draw()
     bird.draw();
 }
 
-document.addEventListener( 'keypress', function ( event )
+document.addEventListener( 'keydown', function ( event )
 {
     keypressed[ event.code ] = true;
+    console.log( event.code );
 } );
 
