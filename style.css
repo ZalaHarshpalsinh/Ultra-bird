@@ -1,0 +1,13 @@
+body
+{
+    margin: 0px;
+    padding: 0px;
+    overflow:hidden;
+}
+#game_area
+{
+    width: 99.4vw;
+    height: 98.8vh;
+    border: 5px solid black;
+    image-rendering:pixelated;
+}
