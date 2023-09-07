@@ -11,3 +11,8 @@ body
     border: 5px solid black;
     image-rendering:pixelated;
 }
+
+@font-face {
+    font-family: 'flappy-font';
+    src: url('./resources/fonts/flappy.ttf');
+}

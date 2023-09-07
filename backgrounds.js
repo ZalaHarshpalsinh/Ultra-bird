@@ -2,12 +2,9 @@ class Backgrounds
 {
     constructor()
     {
-        this.mountains = document.createElement( 'img' );
-        this.mountains.src = './resources/images/background.png';
+        this.mountains = images[ 'background' ];
 
-        this.ground = document.createElement( 'img' );
-        this.ground.src = './resources/images/ground.png';
-
+        this.ground = images[ 'ground' ];
         this.mountains_position = 0;
         this.ground_position = 0;
 
@@ -28,9 +25,8 @@ class Backgrounds
 
     draw()
     {
-        g_game.drawImage( this.mountains, -this.mountains_position, 0 );
-        g_game.drawImage( this.ground, -this.ground_position, this.ground_start_height );
+        g_game.drawImage( images[ 'background' ], -this.mountains_position, 0 );
+        g_game.drawImage( images[ 'ground' ], -this.ground_position, this.ground_start_height );
     }
-
 }
 

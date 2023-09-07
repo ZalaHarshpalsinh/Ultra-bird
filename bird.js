@@ -3,12 +3,12 @@ class Bird
 {
     constructor()
     {
-        this.bird = document.createElement( 'img' );
-        this.bird.src = './resources/images/bird.png';
+        this.bird = images[ 'bird' ];
 
         this.x = ( g_virtual_width / 2 ) - ( this.bird.width / 2 );
         this.y = ( g_virtual_height / 2 ) - ( this.bird.height / 2 );
-
+        this.width = this.bird.width;
+        this.height = this.bird.height;
         this.dy = 0;
     }
 
@@ -17,7 +17,7 @@ class Bird
         this.dy = this.dy + ( dt * g_gravity );
         if ( keypressed[ 'Space' ] )
         {
-            this.dy = -5;
+            this.dy = -6;
         }
         this.y = this.y + this.dy;
     }
