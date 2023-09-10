@@ -9,7 +9,7 @@ class TitleScreenState extends BaseState
     {
         if ( keypressed[ 'Enter' ] )
         {
-            g_state_machine.change( 'PlayState' );
+            g_state_machine.change( 'CountDownState' );
         }
     }
     draw()

@@ -8,6 +8,9 @@ class PlayState extends BaseState
         super();
         this.bird = new Bird();
         this.pipe_pairs = new Pipe_pairs();
+        this.score = 0;
+        g_game.textAlign = 'left';
+        g_game.fillStyle = 'red';
     }
     collide( object1, object2 )
     {
@@ -41,12 +44,27 @@ class PlayState extends BaseState
         }
         return false;
     }
-
+    has_passed( obj1, obj2 )
+    {
+        if ( obj1.x > ( obj2.x + obj2.width ) )
+        {
+            return true;
+        }
+        return false;
+    }
     update( dt )
     {
         if ( this.bird_dead() )
         {
-            g_state_machine.change( 'TitleScreenState' );
+            g_state_machine.change( 'ScoreState', { score: this.score } );
+        }
+        for ( let pipe_pair of this.pipe_pairs.pipe_pairs )
+        {
+            if ( this.has_passed( this.bird, pipe_pair.pipes[ 0 ] ) && pipe_pair.passed_the_bird == false )
+            {
+                this.score++;
+                pipe_pair.passed_the_bird = true;
+            }
         }
         this.bird.update( dt );
         this.pipe_pairs.update( dt );
@@ -55,5 +73,7 @@ class PlayState extends BaseState
     {
         this.pipe_pairs.draw();
         this.bird.draw();
+        g_game.font = '20px flappy-font';
+        g_game.fillText( `Score : ${this.score}`, 5, 25 );
     }
 }

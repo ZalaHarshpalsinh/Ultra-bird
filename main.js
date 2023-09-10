@@ -36,7 +36,9 @@ let backgrounds = new Backgrounds();
 let states = {
     'BaseState': function () { return new BaseState() },
     'PlayState': function () { return new PlayState() },
-    'TitleScreenState': function () { return new TitleScreenState() }
+    'TitleScreenState': function () { return new TitleScreenState() },
+    'ScoreState': function () { return new ScoreState() },
+    'CountDownState': function () { return new CountDownState() }
 }
 let g_state_machine = new StateMachine( states );
 g_state_machine.change( 'TitleScreenState' );

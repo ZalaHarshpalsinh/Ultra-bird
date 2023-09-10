@@ -5,6 +5,7 @@ class Pipe_pair
         this.x = g_virtual_width;
         this.pipes = [ new Pipe( 'upper', this.x, y ), new Pipe( 'lower', this.x, y + g_pipe_height + 90 ) ];
         this.remove = false;
+        this.passed_the_bird = false;
     }
 
     update( dt )
