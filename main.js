@@ -18,6 +18,18 @@ let images = {
     background: './resources/images/background.png',
 };
 images = load_images( images );
+let sounds = {
+    explosion: './resources/sounds/explosion.wav',
+    hurt: './resources/sounds/hurt.wav',
+    jump: './resources/sounds/jump.wav',
+    marios_way: './resources/sounds/marios_way.mp3',
+    score: './resources/sounds/score.wav'
+};
+sounds = load_sounds( sounds );
+sounds[ 'marios_way' ].loop = true;
+sounds[ 'marios_way' ].play();
+
+
 
 window.addEventListener( 'load', function ( event )
 {
@@ -61,6 +73,14 @@ function update( dt )
     if ( keypressed[ 'Escape' ] )
     {
         pause = !pause;
+        if ( pause )
+        {
+            sounds[ 'marios_way' ].pause();
+        }
+        else
+        {
+            sounds[ 'marios_way' ].play();
+        }
     }
     if ( !pause )
     {

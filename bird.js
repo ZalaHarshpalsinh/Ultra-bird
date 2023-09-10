@@ -17,9 +17,10 @@ class Bird
         this.dy = this.dy + ( dt * g_gravity );
         if ( keypressed[ 'Space' ] )
         {
-            this.dy = -6;
+            sounds[ 'jump' ].play();
+            this.dy = -7;
         }
-        this.y = this.y + this.dy;
+        this.y = Math.max( 0, this.y + this.dy );
     }
 
     draw()

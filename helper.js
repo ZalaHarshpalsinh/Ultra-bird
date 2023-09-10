@@ -9,6 +9,15 @@ function load_images( images )
     }
     return images;
 }
+function load_sounds( sounds )
+{
+    for ( let name in sounds )
+    {
+        let sound = new Audio( sounds[ name ] );
+        sounds[ name ] = sound;
+    }
+    return sounds;
+}
 
 function on_all_load_start_render( images, render )
 {

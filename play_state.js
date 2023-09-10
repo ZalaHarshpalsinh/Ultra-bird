@@ -56,12 +56,15 @@ class PlayState extends BaseState
     {
         if ( this.bird_dead() )
         {
+            sounds[ 'explosion' ].play();
+            sounds[ 'hurt' ].play();
             g_state_machine.change( 'ScoreState', { score: this.score } );
         }
         for ( let pipe_pair of this.pipe_pairs.pipe_pairs )
         {
             if ( this.has_passed( this.bird, pipe_pair.pipes[ 0 ] ) && pipe_pair.passed_the_bird == false )
             {
+                sounds[ 'score' ].play();
                 this.score++;
                 pipe_pair.passed_the_bird = true;
             }
