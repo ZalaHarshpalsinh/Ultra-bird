@@ -3,6 +3,9 @@ let images = {
     ground: './resources/images/ground.png',
     pipe: './resources/images/pipe.png',
     background: './resources/images/background.png',
+    bronze: './resources/images/bronze.png',
+    silver: './resources/images/silver.png',
+    gold: './resources/images/gold.png',
 };
 images = load_images( images );
 
