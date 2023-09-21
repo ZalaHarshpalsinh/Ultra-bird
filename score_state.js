@@ -16,7 +16,7 @@ class ScoreState extends BaseState
         {
             this.medal = 'silver';
         }
-        else if ( this.score <= 8 )
+        else
         {
             this.medal = 'gold';
         }
