@@ -1,9 +1,10 @@
 class Pipe_pair
 {
-    constructor( y )
+    constructor( y, gap )
     {
         this.x = g_virtual_width;
-        this.pipes = [ new Pipe( 'upper', this.x, y ), new Pipe( 'lower', this.x, y + g_pipe_height + 90 ) ];
+        this.pipe_gap = gap;
+        this.pipes = [ new Pipe( 'upper', this.x, y ), new Pipe( 'lower', this.x, y + g_pipe_height + this.pipe_gap ) ];
         this.remove = false;
         this.passed_the_bird = false;
     }
