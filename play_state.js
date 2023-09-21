@@ -1,4 +1,4 @@
-const g_pipe_height = 288;
+const g_pipe_height = images[ 'pipe' ].height;
 const g_gravity = 20;
 
 class PlayState extends BaseState
@@ -9,8 +9,6 @@ class PlayState extends BaseState
         this.bird = new Bird();
         this.pipe_pairs = new Pipe_pairs();
         this.score = 0;
-        g_game.textAlign = 'left';
-        g_game.fillStyle = 'red';
     }
     collide( object1, object2 )
     {
@@ -76,7 +74,8 @@ class PlayState extends BaseState
     {
         this.pipe_pairs.draw();
         this.bird.draw();
-        g_game.font = '20px flappy-font';
-        g_game.fillText( `Score : ${this.score}`, 5, 25 );
+        print( `Score : ${this.score}`, 5, 25, 'left', 'red', '20px flappy-font' );
+        print( "Pause : Esc", 0, g_virtual_height, 'left', 'black', '20px flappy-font' );
+        print( "Jump : SPACEBAR", g_virtual_width, 25, 'right', 'black', '20px flappy-font' );
     }
 }

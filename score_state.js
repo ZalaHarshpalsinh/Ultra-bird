@@ -4,8 +4,6 @@ class ScoreState extends BaseState
     {
         super();
         this.score = 0;
-        g_game.fillStyle = 'black';
-        g_game.textAlign = 'center';
     }
     enter( enter_para )
     {
@@ -20,11 +18,8 @@ class ScoreState extends BaseState
     }
     draw()
     {
-        g_game.font = "30px flappy-font";
-        g_game.fillText( "You lost the game T_T.", g_virtual_width / 2, g_virtual_height / 2 - 30 );
-        g_game.font = "25px flappy-font";
-        g_game.fillText( `Score : ${this.score}`, g_virtual_width / 2, g_virtual_height / 2 );
-        g_game.font = "20px flappy-font";
-        g_game.fillText( "Press enter to play again.", g_virtual_width / 2, g_virtual_height / 2 + 30 );
+        print( "You lost the game T_T.", g_virtual_width / 2, g_virtual_height / 2 - 30, 'center', 'black', '30px flappy-font' );
+        print( `Score : ${this.score}`, g_virtual_width / 2, g_virtual_height / 2, 'center', 'black', '25px flappy-font' );
+        print( "Press enter to play again.", g_virtual_width / 2, g_virtual_height / 2 + 30, 'center', 'black', '20px flappy-font' );
     }
 }

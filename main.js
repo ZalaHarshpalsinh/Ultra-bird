@@ -11,39 +11,12 @@ const scale_y = g_actual_height / g_virtual_height;
 g_game.scale( scale_x, scale_y );
 
 
-let images = {
-    bird: './resources/images/bird.png',
-    ground: './resources/images/ground.png',
-    pipe: './resources/images/pipe.png',
-    background: './resources/images/background.png',
-};
-images = load_images( images );
-let sounds = {
-    explosion: './resources/sounds/explosion.wav',
-    hurt: './resources/sounds/hurt.wav',
-    jump: './resources/sounds/jump.wav',
-    marios_way: './resources/sounds/marios_way.mp3',
-    score: './resources/sounds/score.wav'
-};
-sounds = load_sounds( sounds );
 sounds[ 'marios_way' ].loop = true;
-sounds[ 'marios_way' ].play();
-
-
-
-window.addEventListener( 'load', function ( event )
-{
-    // on_all_load_start_render( images, render );
-    setInterval( render, 33.3333 );
-} );
-
 
 
 let pause = false;
-let last_update = Date.now();
+let last_update = 0;
 let keypressed = [];
-
-
 let backgrounds = new Backgrounds();
 let states = {
     'BaseState': function () { return new BaseState() },
@@ -56,16 +29,13 @@ let g_state_machine = new StateMachine( states );
 g_state_machine.change( 'TitleScreenState' );
 
 
-
-
-function render()
+function render( time )
 {
-    let now = Date.now();
-    let dt = ( ( now - last_update ) / 1000 );
-    last_update = now;
-
+    let dt = ( time - last_update ) / 1000;
+    last_update = time;
     update( dt );
     draw();
+    requestAnimationFrame( render );
 }
 
 function update( dt )
@@ -92,15 +62,10 @@ function update( dt )
 
 function draw()
 {
-    g_game.clearRect( 0, 0, g_actual_width, g_actual_height );
+    g_game.clearRect( 0, 0, g_virtual_width, g_virtual_height );
     backgrounds.draw();
     g_state_machine.draw();
 }
-
-
-
-
-
 
 
 document.addEventListener( 'keydown', function ( event )
@@ -109,3 +74,4 @@ document.addEventListener( 'keydown', function ( event )
     console.log( event.code );
 } );
 
+requestAnimationFrame( render );

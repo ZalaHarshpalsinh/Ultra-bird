@@ -3,11 +3,12 @@ class CountDownState extends BaseState
     constructor()
     {
         super();
-        g_game.fillStyle = "black";
-        g_game.font = "50px flappy-font";
-        g_game.textAlign = 'center';
         this.count = 3;
         this.timer = 0;
+    }
+    enter( enter_para )
+    {
+        sounds[ 'marios_way' ].play();
     }
     update( dt )
     {
@@ -24,6 +25,6 @@ class CountDownState extends BaseState
     }
     draw()
     {
-        g_game.fillText( `${this.count}`, g_virtual_width / 2, g_virtual_height / 2 );
+        print( `${this.count}`, g_virtual_width / 2, g_virtual_height / 2, 'center', 'black', '50px flappy-font' );
     }
 }

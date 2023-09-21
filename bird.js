@@ -4,7 +4,6 @@ class Bird
     constructor()
     {
         this.bird = images[ 'bird' ];
-
         this.x = ( g_virtual_width / 2 ) - ( this.bird.width / 2 );
         this.y = ( g_virtual_height / 2 ) - ( this.bird.height / 2 );
         this.width = this.bird.width;
@@ -18,7 +17,7 @@ class Bird
         if ( keypressed[ 'Space' ] )
         {
             sounds[ 'jump' ].play();
-            this.dy = -7;
+            this.dy = -5.5;
         }
         this.y = Math.max( 0, this.y + this.dy );
     }

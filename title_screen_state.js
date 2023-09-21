@@ -3,7 +3,6 @@ class TitleScreenState extends BaseState
     constructor()
     {
         super();
-        g_game.textAlign = 'center';
     }
     update( dt )
     {
@@ -14,9 +13,7 @@ class TitleScreenState extends BaseState
     }
     draw()
     {
-        g_game.font = '50px flappy-font';
-        g_game.fillText( "ULTRA Bird", g_virtual_width / 2, g_virtual_height / 2 );
-        g_game.font = '20px flappy-font';
-        g_game.fillText( "Press Enter", g_virtual_width / 2, g_virtual_height / 2 + 50 );
+        print( "ULTRA Bird", g_virtual_width / 2, g_virtual_height / 2, 'center', 'black', '50px flappy-font' );
+        print( "Press Enter", g_virtual_width / 2, g_virtual_height / 2 + 50, 'center', 'black', '20px flappy-font' );
     }
 }
