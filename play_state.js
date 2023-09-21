@@ -12,9 +12,10 @@ class PlayState extends BaseState
     }
     collide( object1, object2 )
     {
-        if ( ( object1.x + object1.width > object2.x ) && ( object1.x < object2.x + object2.width ) )
+        this.ease = 5;
+        if ( ( object1.x + object1.width - this.ease > object2.x ) && ( object1.x + this.ease < object2.x + object2.width ) )
         {
-            if ( ( object1.y + object1.height > object2.y ) && ( object1.y < object2.y + object2.height ) )
+            if ( ( object1.y + object1.height - this.ease > object2.y ) && ( object1.y + this.ease < object2.y + object2.height ) )
             {
                 return true;
             }
