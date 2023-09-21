@@ -6,7 +6,7 @@ class TitleScreenState extends BaseState
     }
     update( dt )
     {
-        if ( keypressed[ 'Enter' ] )
+        if ( keypressed[ 'Enter' ] || keypressed[ 'mouse' ] )
         {
             g_state_machine.change( 'CountDownState' );
         }

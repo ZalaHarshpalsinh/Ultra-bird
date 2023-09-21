@@ -74,4 +74,9 @@ document.addEventListener( 'keydown', function ( event )
     console.log( event.code );
 } );
 
+document.addEventListener( 'click', function ( event )
+{
+    keypressed[ 'mouse' ] = true;
+} );
+
 requestAnimationFrame( render );
